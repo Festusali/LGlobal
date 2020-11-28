@@ -1,0 +1,149 @@
+body {
+    background-color: rgb(245, 243, 243);
+    color: black;
+}
+
+.text-right {
+    padding-right: 20px;
+}
+
+.text-right:hover, a:hover {
+    background-color: rgb(245, 243, 243);
+    color: green;
+}
+
+.float-right-container {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    text-align: right;
+}
+
+
+.float-left-container {
+    position: relative;
+    margin-right: 15%;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+
+.float-right {
+    padding-right: 10px;
+    margin-right: auto;
+    text-align: right;
+}
+
+
+.float-left {
+    max-width: 98%;
+    padding: 10px;
+    margin-left: 53px;
+    display: inline-block;
+    text-align: inherit;
+}
+
+.pics img {
+    height: 130px;
+    width: 130px;
+    border-radius: 10px;
+}
+
+.warning {
+    background-color: #dd0505;
+    color: #f0f5f5;
+    padding: 10px 25px;
+    border-radius: 1.5em;
+}
+
+.success {
+    background-color: rgb(11, 182, 130);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 1.5em;
+}
+
+button.close {
+    font-size: 45px;
+}
+
+.site-logo {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 50px;
+    height: 45px;
+}
+
+.brand-text {
+    padding-left: 57px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+table {
+    color: black;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.table tr:hover {
+    color: black;
+}
+
+table#stats caption.title {
+    color: black;
+}
+
+
+section {
+    background-color: white;
+    border: 3px groove whitesmoke;
+    border-radius: 20px;
+    margin: 5px 10px;
+    padding: 10px;
+}
+
+div.page-header {
+    color: black;
+    border-top: 5px solid black;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+    border-top: 2px solid black;
+    border-radius: 7px;
+    font-variant: small-caps;
+    line-height: 1.8;
+}
+
+ul.messages {
+    font-size: 18px;
+}
+
+div.footer {
+    background-color: whitesmoke;
+    margin: 20px 10px 50px 10px;
+    padding: 10px;
+    border-top: 5px solid black;
+    border-radius: 15px;
+}
+
+div.wallet span.emphasis-big {
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 3px;
+    padding-top: 20px;
+    border-bottom: 2px solid black;
+    border-radius: 0.5em;
+    display: inline-block;
+}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Leading Wealth | Enriching Lives Financially {% endblock page_title %}
+{% block nav_text %}<a class="navbar-brand brand-text active" href="{% url 'coin:index' %}"><img class="site-logo" src="{% static 'LW-Logo.png' %}">Leading Wealth</a>{% endblock nav_text %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="dashboard" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="dashboard-container" class="container">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Leading Wealth ==> Your Financial Freedom {% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title">What Is Leading Wealth?</p>
+        <p class="detail">
+            Leading Wealth is an online Multi Level Marketing Platform organized by well meaning team of concerned persons to help thousands of people have Financial Breakthrough. The platform is based on Networking Principles (multi-level marketing strategy) where every member joins his/her Referee's (Leader's) Downline and help empower him/her to Financial Freedom. The poeple in his/her downline are powered by people in their individual downlines too. The strategy is to empower someone (Downline Leader) and you in turn will be empowered by others (Downline Members).
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 wallet">
+        <p class="title">How Does It Work?</p>
+        <p class="detail">
+            When you register an account, you will be automatically inserted into your Referee's Downline if he/she don't have up to three users already. Else, you will be inserted into a dynamically selected Downline which is still free. At this point, you will be issued your first invoice which you must have to pay to be able to upgrade to the next level. The whole invoicing process happens automatically at each level. The amount of each invoice too is determined by the level you are.<br>
+            The first time, you pay $20.00 and you get paid $20.00 * 3 users which is $60.00. The second time you pay $50.00 and get paid $50.00 * 3 users which amounts to $150.00. Next, you pay $150.00 and get paid $150.00 * 3 users amounting to $450.00 and finally, you pay $250.00 and get paid same $250.00 * 3 users which is $750.00. Do the final calculation and you will understand how much you have credited into your account by embracing Leading Wealth Networking opportunity.
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 history">
+        <p class="title">Our Mission!</p>
+        <p class="detail">
+            To Financially Empower thousands of people all over the globe.
+            To provide a platform where Financial Empowerment is a way of life.
+            To provide secure means of Networking.
+            To be Transparent in all aspects of services provided.
+            To be a Yard Stick for measuring Financial Freedom.
+            To be a point of "Positive Reference" in Multi Level Marketing empire.
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 more-details">
+        <p class="title">Our Vision!</p>
+        <p class="detail">
+            To empower thousands of Financially Dependent persons into Financial Independence.
+            To be that Multi Level Marketing platform that is known for Transperency both within and outside the members.
+            To put a testimony in the mouth and heart of Financially burdened persons.
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 more-details">
+        <p class="title">How To Join?</p>
+        <p class="detail">
+            To join Leading Wealth is easy. First you need to <a href="{% url 'user:register' %}" title="Register New Account">Register an Account</a>. After registration, you will be required to verify the email address you used during registration (This is to ensure that the email belongs to you and that you can use it to reset you password when need be). <br><strong>Note: </strong>You must verify the email address within 48 hours of registration or your account will be deacticated and consequently, deleted.<br>
+            The top navigation bar has "Register" and "Login" links to aid you any time you need them.
+        </p>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}

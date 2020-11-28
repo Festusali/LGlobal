@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Upgrade To Higher Level{% endblock %}
+{% block nav_user %}<li class="active"><a href="{% url 'user:profile' request.user.id %}"><b><span class="glyphicon glyphicon-user"></span> {{ request.user }}</b></a></li>{% endblock nav_user %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="invoices" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="invoices-container" class="container">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Upgrade Your Level{% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title"><b>{{ request.user }}</b>, Please confirm you really "have paid" this invoice!</p>
+        <p class="detail">
+            If you have made successful payment of this Invoice through BitCoin, and you want to confirm the payment on Leading Wealth, please check the pay box and input the wallet address you used making the payment.
+        </p>
+    </div>
+    </div>
+    
+    <div class="title">Invoice Details</div>
+    <div class="table-responsive">
+        {% if invoice_detail.paid == True %}<div class="float-right-container">Invoiced paid and confirmed. <a href="{% url 'coin:receipt-detail' invoive.id %}" title="Print Receipt">Please Print Receipt Instead.</a></div>{% endif %}
+        {% include 'coin/_partial/invoice.html' with invoice_detail=invoice_detail %}
+    </div>
+
+    {% if invoice_detail.pay is True %}
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">PLease Wait For Your Payment To Be Confirmed.</p>
+        <p class="detail">
+            You have already notified of payment made. Please wait for your referer to confirm having received the payment. You can request for him/her to confirm the payment for it to reflect.
+        </p>
+    </div>
+    </div>
+    {% else %}
+    <div class="row info">
+    <div class="col-xs-12 pay-invoice">
+    {% if form.is_multipart %}
+    <form enctype="multipart/form-data" method="POST" action="">
+    {% else %}
+    <form action="" method="POST">
+    {% endif %}
+    
+    {% csrf_token %}
+    
+    {{ form|crispy }}
+    
+    <div id="success" class="info">
+    <div class="row ">
+        <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-primary btn-outline success">
+                <span class="glyphicon glyphicon-bitcoin"></span> Confirm Invoice Paid
+            </button>
+        </div>
+    </div>
+    </div>
+    
+    </form>
+    
+    </div>
+    </div>
+    {% endif %}
+
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">Further Help</p>
+        <p class="detail">
+            If you need further help with Paying Invoices, please consult the help page or talk to a customer service representative.
+        </p>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}

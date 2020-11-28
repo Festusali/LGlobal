@@ -1,0 +1,26 @@
+{% extend 'base.html' %}
+{% load static %}
+
+{% block page_title %}Internal Server Error{% endblock page_title %}
+
+{% block content %}
+
+<section id="error-500" class="server-error warning">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h2>{% block title %}Server Downtime!{% endblock title %}</h2>
+        {% block title_divider %}<hr class="star-primary">{% endblock title_divider %}
+    </div>
+</div>
+
+<div class="title">The Server Is Currently Down</div>
+<div class="details">
+    <p class="note">Our server is currently down. Please try again later.</p>
+    The problem is from our end and we are working on fixing it right away.
+    <p>At the moment you can navigate to the <a href="{% url 'coin:index' %}" title="Leading Wealth">Home Page</a></p>
+</div>
+</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block page_title %}Log In to Leading Wealth{% endblock page_title %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="login" class="info">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h2>{% block title %}Login to your Account!{% endblock title %}</h2>
+        {% block title_divider %}<hr class="star-primary">{% endblock title_divider %}
+    </div>
+</div>
+
+<div class="register">
+  <a href="{% url 'user:register' %}" title="Register new account">New Account </a>
+</div>
+
+{% if form.errors %}
+    <p class="errorlist">Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}<div id="login" class="login">
+    <div class="form-row">
+      <div class="form-group col-sm-6 mb-0">
+        {{ form.username|as_crispy_field }}
+      </div>
+      <div class="form-group col-sm-6 mb-0">
+        {{ form.password|as_crispy_field }}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-xs-12 mb-0">
+      <button id="login_user" type="submit" class="btn btn-primary btn-outline success">
+        <span class="glyphicon glyphicon-log-in"></span> Login
+      </button>
+      </div>
+    </div>
+      <input type="hidden" name="next" value="{{ next }}" />
+    </div>
+</form>
+
+<div>
+  <a href="{% url 'password_reset' %}">Lost Password?</a> Or <a href="{% url 'user:register' %}" title="Register new account">Create New Account.</a>
+</div>
+
+<a href="{% url 'coin:index' %}" title="Home Page">Continue without login</a>
+
+</div>
+</section>
+
+{% endblock content %}

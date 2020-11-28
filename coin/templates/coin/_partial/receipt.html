@@ -1,0 +1,15 @@
+<table id="receipt-{{ receipt_detail.id }}" class="table table-hover detail receipt-detail">
+  <tr><td colspan="2">{{ receipt_detail.description }}</td></tr>
+  <tr><td><span class="important">Issuer:</span></td><td><b>{{ receipt_detail.issuer }}</b></td></tr>
+  <tr><td><span class="important">Invoiced To:</span></td><td><b>{{ receipt_detail.invoiced_to }}</b></td></tr>
+  <tr><td><span class="important">Number:</span></td><td><b>{{ receipt_detail.number }}</b></td></tr>
+  <tr><td><span class="important">Receiving Wallet:</span></td><td><b>
+    {% if "site maintenance" in receipt_detail.description %} 1B3kwg2J5tvkasJ9oPj7jNxb1Z7swLjRmW
+    {% else %} {{ receipt_detail.issuer.profile_data.wallet }}
+    {% endif %} </b></td></tr>
+  <tr><td><span class="important">Paying Wallet:</span></td><td><b>{{ receipt_detail.paid_from_wallet }}</b></td></tr>
+  <tr><td><span class="important">Amount:</span></td><td><b>{{ receipt_detail.amount }}</b></td></tr>
+  <tr><td><span class="important">Paid:</span></td><td><b><span class="glyphicon glyphicon-ok"></span></b></td></tr>
+  <tr><td><span class="important">Issue Date:</span></td><td><b>{{ receipt_detail.issue_date }}</b></td></tr>
+  <tr><td><span class="important">Paid Date:</span></td><td><b>{{ receipt_detail.pay_date }}</b></td></tr>
+</table>

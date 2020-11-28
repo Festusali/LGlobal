@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block page_title %}Frequently Asked Questions{% endblock page_title %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="faq" class="info faq">
+<div id="faq-container" class="container">
+
+    <div class="row info">
+    <div class="col-xs-12">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Leading Wealth || Frequently Asked Questions!{% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title faq">Frequently Asked Questions!</p>
+        <p id="faq-intro" class="detail">
+            <p>
+                Welcome to the Leading Wealth Frequently Asked Questions page. This page hosts answers to numerous questions that have been asked and that may be asked regarding the Leading Wealth project. You are advised and highly encouraged to visit this page as often as possible to be updated concerning the working and operational methods of the Leading Wealth website. It is recommended to you search for answers to your questions on this page before you proceed to using other help mechanisms like; Our WhatsApp group, email, etc.<br>
+                This page will be updated as often as always to keep it up to date with the need and requirements of the website.
+            </p>
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div id="about-leading-wealth" class="col-md-6 intro">
+        <p class="title about-leading-wealth">What is Leading Wealth?</p>
+        <p class="detail">
+            <p>
+            Leading Wealth is an empowerment platform based on the principles of Networking. In this case, a Multi-Level Marketing Strategy where you sponsor your Referee to Financial Freedom and you in turn will also be sponsored by others (your referrals).
+            </p>
+        </p>
+    </div>
+    
+    <div id="finance-source" class="col-md-6 intro">
+        <p class="title finance-source">How Does the Finance for Sponsorship Come?</p>
+        <p class="detail">
+            <p>
+            Every user upon verifying his/her email following registration, will be required to pay $20.00 to his Referee. Your Referee will earn $20.00 from three people in his downline and so will you earn from the people in your downline too. Therefore, the finance comes directly from the members for the benefit of the members.
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="to-earn" class="col-md-6 intro">
+        <p class="title to-earn">How Much Will I Earn?</p>
+        <p class="detail">
+            <p>
+            You will earn from 3 people at each level. The amount you will earn from each person depends on the level which is stated on Levels and Amounts.
+            </p>
+        </p>
+    </div>
+    
+    <div id="to-spend" class="col-md-6 intro">
+        <p class="title to-spend">How Much Will I Spend?</p>
+        <p class="detail">
+            <p>
+            You are only going to spend you’re the first $20.00 which you will pay to your Referee. Then every other payments comes from what you have earned from those from your downline. This is possible because you are not allowed to upgrade to the next level till you must have received payment from the three (3) users in your downline.
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="about-level" class="col-md-6 intro">
+        <p class="title about-level">What is a Level?</p>
+        <p class="detail">
+            <p>
+            Levels are the current stage you have attained on a given circle. The available levels are Level 0 – Level 4. Level 0 is when you just registered by haven’t verified your email address. Level 1 is when you have verified your registered email, and is therefore, considered a full-fledged member of Leading Wealth. You will keep upgrading through the levels until Level 4 where you will roll back to level 0 and start another new circle.
+            </p>
+        </p>
+    </div>
+    
+    <div id="upgrade-level" class="col-md-6 intro">
+        <p class="title upgrade-level">How Can I Upgrade to Next Level?</p>
+        <p class="detail">
+            <p>
+            You will be able to upgrade to the next level when you have paid your Referee and then when you have confirmed receiving payment from the three people in your downline. When this is done you can locate the <em>"Upgrade Level"</em> button located in your level detail page.
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="about-profile" class="col-md-6 intro">
+        <p class="title about-profile">What is a Profile and How Do I Get Mine?</p>
+        <p class="detail">
+            <p>
+            A profile is just like your personal information folder with us. We use it to keep record of every personal details you provide us and also to provide you with personalized content each time you visit the Leading Wealth website/platform.
+            </p>
+        </p>
+    </div>
+    
+    <div id="edit-profile" class="col-md-6 intro">
+        <p class="title edit-profile">How Can I Edit My Profile?</p>
+        <p class="detail">
+            <p>
+            To edit your profile, click on your Username that appears on the Navigation Bar when you have successfully logged in. In your Profile, locate “Edit” button, click and follow the instructions.
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="about-invoice" class="col-md-6 intro">
+        <p class="title about-invoice">What is an Invoice?</p>
+        <p class="detail">
+            <p>
+            An invoice represents electronic payable invoice where details of given financial statement are recorded and maintained individually to help pay for services and be able to track such transactions anytime anywhere.
+            </p>
+        </p>
+    </div>
+    
+    <div id="create-invoice" class="col-md-6 intro">
+        <p class="title create-invoice">How Can I Create Invoice(s)?</p>
+        <p class="detail">
+            <p>
+            You actually don’t have to create invoices by yourself or manually. The system understands when it is necessary to create one and does that for you.
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="pay-invoice" class="col-md-6 intro">
+        <p class="title pay-invoice">How Can I Pay for Given Invoice?</p>
+        <p class="detail">
+            <p>
+            View details of given invoice and copy the <em>Wallet Address</em> attached to it. Then proceed to <strong><em>Bitcoin</em></strong> and complete the payment. Then follow the procedure outlined in the section; <a href="#notify-payment" title="How to Notify for Payment Made.">How Do I Notify My Referee That I Have Paid for Given Invoice?</a>
+            </p>
+        </p>
+    </div>
+    
+    <div id="receive-payment" class="col-md-6 intro">
+        <p class="title receive-payment">How Do I Receive Payments?</p>
+        <p class="detail">
+            <p>
+            When you register an account with Us (<strong>Leading Wealth</strong>), you will able to edit your profile and include your wallet address in your profile (personal information page). The wallet address you add in your profile will then appear in all your invoices and receipts. See <a href="#edit-profile" title="How to Edit Profile">"How Can I Edit My Profile?"</a> section if you need help.
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="notify-payment" class="col-md-6 intro">
+        <p class="title notify-payment">How Do I Notify My Referee That I Have Paid for Given Invoice?</p>
+        <p class="detail">
+            <p>
+            After paying for an invoice into the issuer’s wallet address, you should come back to the given invoice detail page and click on <strong>"Pay Invoice"</strong> or <strong>"Pay"</strong>. Then tick the <em>Pay Checkbox</em> and input the <em>Wallet Address</em> used for making the payment in the provided space. Submit the form and the <strong>"Issuer"</strong> will automatically have the option to confirm having received payment for the invoice in question.
+            </p>
+        </p>
+    </div>
+    
+    <div id="know-invoice-paid" class="col-md-6 intro">
+        <p class="title know-invoice-paid">How Do I Know Invoices I Paid For?</p>
+        <p class="detail">
+            <p>
+            All paid invoices will be located under <strong>"Receipts"</strong> tab on the Navigation Bar. When you click and view details of each invoice (now known as <strong><em>Receipt</em></strong>), you will see details like; <em>Paying Wallet (Paid from Address), Receiving Wallet, Paid Date, A Tick Indicating Paid, Etc.</em>
+            </p>
+        </p>
+    </div>
+    </div>
+    
+    <div class="row info">
+    <div id="know-invoice-unpaid" class="col-md-6 intro">
+        <p class="title know-invoice-unpaid">How Do I Know Invoices Yet to Be Paid?</p>
+        <p class="detail">
+            <p>
+            All unpaid invoices (both the one you issued out and the ones invoiced to you, will be accessible under the <strong>"Invoices"</strong> tab on the Navigation Bar. When you click individual invoice, you will be taken to the <strong>"Invoice Detail"</strong> page. You will have the option to pay for the invoice, if and only if you are the one the invoice is issued to or a link to confirm payment received if the user you invoiced has indicated paying for the invoice.
+            </p>
+        </p>
+    </div>
+    
+    <div id="no-invoice-nor-receipt" class="col-md-6 intro">
+        <p class="title no-invoice-nor-receipt">I Can’t Find My Invoices Neither Can I Find the Receipts. What Happened?</p>
+        <p class="detail">
+            <p>
+            You most certainly have completed the circle and all invoices and receipts for that circle will be archived. This will make your invoices and receipts disappear from the <strong>"Invoices"</strong> and <strong>"Receipts"</strong> <em>Tab</em>, however, they are not deleted yet but instead moved to archive where it can be referenced if need be.
+            </p>
+        </p>
+    </div>
+    </div>
+
+    </div>
+    </div>
+</div>
+</section>
+
+{% endblock content %}

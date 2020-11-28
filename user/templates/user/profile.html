@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Personal Account Information{% endblock page_title %}
+{% block nav_user %}<li class="active"><a><b><span class="glyphicon glyphicon-user"></span> {{ request.user }}</b></a></li>{% endblock nav_user %}
+
+{% block content %}
+
+{% block profile %}
+<section id="profile" class="info profile">
+    <div class="row info">
+    <div class="col-xs-12">
+    <div id="profile-container" class="container">
+    <div class="row page-header">
+        <h2><div class="col-sm-9 text-center">{% block title %}User Personal Details!</div>
+        <div class="col-sm-3 float-right"><a href="{% url 'user:edit-profile' username=request.user %}" class="text-right">Edit<span class="glyphicon glyphicon-edit"></span></a></div> {% endblock title %}
+        </h2>
+    </div>
+    </div>
+
+    <div class="info">
+        <p class="title"><b>{{ request.user }}</b>, Here Are Information You Provided Us.</p>
+        <p class="detail">
+        <div class="row">
+        <div class="col-sm-2 pics">
+            <img src="{{ user_detail.get_avatar }}" alt="User Avatar">
+        </div>
+        <div class="col-sm-10 user-detail">
+            We try to make things efficient and transparent for both our users and us. Hence, here, you can review the details you've provide us so far. Please, don't forget to copy your referral code for referring users to register for Leading Wealth account under you.
+        </div>
+        </div>
+        </p>
+        <p class="note"><b>Note:</b> If you have any question(s), don't hesitate to check out the Frequently Asked Questions page where most of the commonly asked questions have been answered. You can also contact Our Customer Care Unit if you think you need further assistance.</p>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 user-details">
+        <p class="detail">
+            {{ request.user }}, each detail here is important as your account with us. Manage them well.<br>
+            <table>
+            <tr>
+            <td style="width: 10%"><span class="important">Level: <b>{{ user_detail.level }}</b></span></td>
+            <td><span class="important">Level indicates how much you've achieved. The more you accomplish some tasks, the higher your level becomes. You can boost your level by referring more users to register for Leading Wealth account using your referral code. please copy the code/link and use it to invite family and friends to register new account with us and enjoy seemless possibilities.</span></td>
+            </tr>
+            <tr>
+            <td><span class="important">Circles: <b>{{ user_detail.circles }}</b></span></td>
+            <td><span class="important">Circles indicates the number of times you have completed the levels and rolled back to afresh.</span></td>
+            </tr>
+            <tr>
+            <td><span class="important">Balance: <b>{{ user_detail.balance }}</b> </span></td>
+            <td><span class="important">Balance indicates the ammount currently available to you for withdrawal. You can request for withdrawal of your balance when you need them.</span></td>
+            </tr>
+            <tr>
+            <td><span class="important">Phone: <b>{{ user_detail.phone }}</b></span><br>
+            <span class="important">Gender: <b>{{ user_detail.get_gender_display }}</b></span><br>
+            <span class="important">Status: <b>{{ user_detail.get_status_display }}</b></span>
+            </td>
+            <td><span class="important">Phone represents your mobile number which you provided.</span><br>
+            <span class="important">Gender indicates wether you're male/female, transgender, or others.</span><br>
+            <span class="important">Status indicates if you're married, single, divorced, etc.</span>
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2"><span class="important">Reference Code: <input type="text" value="https://leadingwealthworldwide.com/users/register/?refcode={{ user_detail.ref_code }}" class="textinput textInput form-control" readonly> This link is the key to your success on Leading Wealth. Please share it anywhere and everywhere. The more people you invite using the referral link, the greater your chances of scalling through the levels and theirby making lots of money in return.</span></td>
+            </tr>
+            <tr><td colspan="2">
+            <div class="col-xs-12"><span class="important">{{ request.user }}, your account was created on {{ user_detail.user.date_joined }} and was last modified on {{ user_detail.modified }}.</span></div>
+            </td></tr>
+            </table>
+        </p>
+        <p class="note"><b>Note:</b> If you don't understand any of the figures shown above, please see the help page.</p>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+</section>
+
+{% endblock profile %}
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}User Level Details{% endblock %}
+{% block nav_level %}<li class="level active"><a>Level</a></li>{% endblock nav_level %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="invoices" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="invoices-container" class="container">
+    <div class="row page-header">
+        <h2><div class="col-sm-8 text-center">{% block title %}Level Details</div>
+        <div class="col-sm-4 float-right"><a class="text-right" href="{% url 'coin:upgrade_level' %}"><span class="glyphicon glyphicon-plus"></span>Upgrade Level</a></div> {% endblock title %}
+        </h2>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title"><b>{{ request.user }}</b>, Find Details of Your Level Here!</p>
+        <p class="detail">
+            As you progress through the levels (by means of paying and getting paid), you get better chances of scaling through to the top and consequently earning higher.
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">Level Detail</p>
+        <p class="detail">
+            You are currently at <a title="Current Level">{{ profile_detail.get_level_display }}</a>. To be able to upgrade to next level, all <a title="Unpaid Invoices">unpaid {{ invoices.count }} invoices</a> must be paid.
+            <div class="row info">
+            {% for invoice in invoices %}
+            <div class="col-sm-6">
+            <div class="table-responsive">
+              {% include 'coin/_partial/invoice.html' with invoice_detail=invoice %}
+            </div>
+            </div>
+            {% empty %}
+            <div>No invoices pending payment.</div> 
+            {% endfor %}
+            </div>
+            <div class="downline title">
+                Users In Your Downline<br>
+            First User: <b><a>{{ downline.user1 }}</a></b> ||| Second User: <b><a>{{ downline.user2 }}</a></b> ||| Third User: <b><a>{{ downline.user3 }}</a></b>
+            </div>
+        </p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">Further Help</p>
+        <p class="detail">
+            If you need further help with Paying Invoices, please consult the help page or talk to a customer service representative.
+        </p>
+    </div>
+    </div>
+    
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}
+

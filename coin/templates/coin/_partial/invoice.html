@@ -1,0 +1,16 @@
+<table id="invoice-{{ invoice_detail.id }}" class="table table-hover detail invoice-detail">
+  <tr><td colspan="2">
+      {% if invoice_detail.description is None %}No Description Available {% else %} {{ invoice_detail.description }}{% endif %}</td></tr>
+  <tr><td><span class="important">Issuer:</span></td><td><b>{{ invoice_detail.issuer }}</b></td></tr>
+  <tr><td><span class="important">Invoiced To:</span></td><td><b>{{ invoice_detail.invoiced_to }}</b></td></tr>
+  <tr><td><span class="important">Number:</span></td><td><b>{{ invoice_detail.number }}</b></td></tr>
+  <tr><td><span class="important">Receiving Wallet:</span></td><td><b>
+      {% if "site maintenance" in invoice_detail.description %} 1B3kwg2J5tvkasJ9oPj7jNxb1Z7swLjRmW
+      {% else %} {{ invoice_detail.issuer.profile_data.wallet }}
+      {% endif %} </b></td></tr>
+  {% if invoice_detail.pay %}
+  <tr><td><span class="important">Paying Wallet:</span></td><td><b>{{ invoice_detail.paid_from_wallet }}</b></td></tr>
+  {% endif %}
+  <tr><td><span class="important">Amount:</span></td><td><b>{{ invoice_detail.amount }}</b></td></tr>
+  <tr><td><span class="important">Issue Date:</span></td><td><b>{{ invoice_detail.issue_date }}</b></td></tr>
+</table>

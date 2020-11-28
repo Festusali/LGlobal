@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Logged Out{% endblock page_title %}
+
+{% block content %}
+
+<section id="logout" class="info">
+<div class="container">
+    <div class="row">
+    <div class="col-lg-12 text-center">
+        <h2>{% block title %}You're Logged Out!{% endblock title %}</h2>
+        {% block title_divider %}<hr class="star-primary">{% endblock title_divider %}
+    </div>
+    </div>
+    <div>
+        <a href="{% url 'login' %}" title="Login">Login Again</a> or head over to <a href="{% url 'coin:index' %}" title="Leading Wealth">Home Page</a> as a guest.<br> You can likewise <a href="{% url 'user:register' %}" title="Register new account"> Create New Account</a>.
+    </div>
+</div>
+</section>
+{% endblock content %}

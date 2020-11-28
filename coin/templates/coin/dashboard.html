@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}User Dashborad | Leading Wealth{% endblock page_title %}
+
+{% block nav_dashboard %}<li class="dashboard active"><a>Dashboard</a></li>{% endblock nav_dashboard %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="dashboard" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="dashboard-container" class="container">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}User Dashboard {% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title"><b>{{ request.user }}</b>, Welcome To Your Dashboard!</p>
+        <p class="detail">
+            As a registered Leading Wealth member, you will find here all necessary details relating to your account. Your account is secure and feature reach. Always ensure that you keep your account password safe and secure. You are adviced not to use same password as you do elsewhere.<br>
+            Your dashboard contains the summary of activities on your account. If you notice anything strange or unsual, please do report to the management as soon as possible.
+        </p>
+        <p class="note"><b>Note:</b> If you have any question(s), don't hesitate to check out the Frequently Asked Questions page where most of the commonly asked questions have been answered. You can also contact Our Customer Care Unit if you think you need further assistance.</p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 wallet">
+        <p class="title">Wallet Summary!</p>
+        <p class="detail">
+            {{ request.user }}, your wallet is the summary of your account on Leading Wealth. Pay attention to every detail and monitor activities (invoicing, payouts, etc.) on your account to ensure maximum earnings.<br>
+            <div class="row info">
+            <div class="col-sm-6">
+            <span class="important emphasis-big">Pending Earnings: <b>{{ wallet.to_earn }}</b> </span><br>
+            <span class="important emphasis-big">Pending Payouts: <b>{{ wallet.to_pay }}</b> </span>
+            </div>
+            <div class="col-sm-6">
+            <span class="important emphasis-big">Total Payouts: <b>{{ wallet.total_payout }}</b> </span><br>
+            <span class="important emphasis-big">Total Earnings: <b>{{ wallet.total_earned }}</b> </span>
+            </div>
+            <div class="col-xs-12"><span class="important emphasis-big">Total Balance: <b>{{ wallet.balance }}</b> </span></div>
+            </div>
+        </p>
+        <p class="note"><b>Note:</b> If you don't understand any of the figures shown above, please see the help page.</p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 more-details">
+        <p class="title">More on Your Account</p>
+        <p class="detail">
+            {{ request.user }}, you have made a total of <a href="{% url 'coin:referrals' %}"><span class="important">{{ referrals }} referral(s) </span></a> and issued a total of <a href="{% url 'coin:invoices' %}"><span class="important">{{ invoices }} invoice(s)</span></a>.
+        </p>
+        <p class="note"><b>Note:</b> To see details of your referrals or invoices, click on the corresponding links above.</p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 history table-responsive">
+    <table id="stats" class="stats table table-hover">
+        <caption class="title">Leading Wealth Statistics!</caption>
+        <tr><th colspan="2" class="detail">{{ request.user }}, herein are summary of activities on Leading Wealth. We are proud to make everything transparent while ensuring your financial freedom.</th></tr>
+        <tr>
+          <td class="important">Total Visits: <b>{{ history.total_visits }}</b> </td>
+          <td class="important"><b>Total Visits:</b> This signifies the total number of times this website has been visited has been visited</td>
+        </tr>
+        <tr>
+          <td class="important">Total Referrals: <b>{{ history.total_referral }}</b> </td>
+          <td class="important"><b>Total Referrals:</b> This is the total number of users who joined Leading Wealth using using any of our Registered User's referral link/code.</td>
+        </tr>
+        <tr>
+          <td class="important">Total Users: <b>{{ history.total_users }}</b> </td>
+          <td class="important"><b>Total Users:</b> This is the total number of Registered Users on Leading Wealth.</td>
+        </tr>
+        <tr>
+          <td class="important">Total Invoiced: <b>{{ history.total_invoiced }}</b> </td>
+          <td class="important"><b>Total Invoiced:</b> This is simply the total amount of invoice that have issued out using our invoicing system.</td>
+        </tr>
+        <tr>
+          <td class="important">Total Payout: <b>{{ history.total_payout }}</b> </td>
+          <td class="important"><b>Total Payout:</b> This is simply the total amount of invoice that users have acknoledged being paid for.</td>
+        </tr>
+        <tfoot class="note">
+          <tr><td colspan="2"><b>Note:</b> You can further understand Leading Wealth Statistics by going through the help page.</td></tr>
+        </tfoot>
+    </table>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}

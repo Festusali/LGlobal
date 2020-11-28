@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Referrals Attached To Your Account{% endblock %}
+{% block nav_referrals %}<li class="Referral active"><a>Referrals</a></li>{% endblock nav_referrals %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="referrals" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="referrals-container" class="container">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}All Referrals You Have Made!{% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title"><b>{{ request.user }}</b>, Here Are The Referrals You Have Made!</p>
+        <p class="detail">
+            The more you refer people to register using your referral code, the more you will earn from Liberty Global. Keeping this in mind, here are the referrals you have made so far.
+        </p>
+        <p class="note"><b>Note: </b>Click on each referral to get complete detail of the referral, who you referred and some other related details.</p>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 referral">
+        <div class="row info">
+        {% for referral in referrals %}
+        <div class="col-sm-6">
+        <a href="#" title="Referral Detail">
+        <p class="title">Referral Details</p>
+        <div class="table-responsive">
+        <table id="referral-{{ referral.id }}" class="table table-hover detail referral-detail">
+            <tr><td><span class="important">Referee:</span></td><td><b>{{ referral.referee }}</b></td></tr>
+            <tr><td><span class="important">Referred:</span></td><td><b>{{ referral.referred }}</b></td></tr>
+            <tr><td><span class="important">Date:</span></td><td><b>{{ referral.date }}</b></td></tr>
+        </table>
+        </div>
+        </a>
+        </div>
+        {% empty %}
+        <p class="title">You have not referred any user who registered using your referral code.</p>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">Further Help</p>
+        <p class="detail">
+            If you need further help with Referral, please consult the help page or talk to a customer service representative.
+        </p>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}

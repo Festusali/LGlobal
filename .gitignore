@@ -1,0 +1,19 @@
+*.pyc
+*.doc
+*.docx
+*~
+__pycache__
+db.sqlite3
+/user_pictures
+/user_signatures
+/media
+/staticfiles
+/mediafiles
+q_c.code-workspace
+/.vscode
+.DS_Store
+.env
+d_settings.py
+group link.txt
+sys_account.txt
+/guided111

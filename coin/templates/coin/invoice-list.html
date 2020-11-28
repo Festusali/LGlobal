@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Invoices Attached To User Account{% endblock %}
+{% block nav_invoices %}
+<li class="dropdown Invoice active">
+  <a class="dropdown-toggle" data-toggle="dropdown">Invoices
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="Invoices active"><a>All Invoices</a></li>
+    <li class="Invoices"><a href="{% url 'coin:issued' %}">Issued Out</a></li>
+    <li class="Invoices"><a href="{% url 'coin:invoiced' %}">Received Invoices</a></li> 
+  </ul>
+</li>
+{% endblock nav_invoices %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="invoices" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="invoices-container" class="container">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Invoices Issued and Recieved by {{ request.user }} {% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title"><b>{{ request.user }}</b>, Here Are Invoices Issued To You And The Once You Issued Others!</p>
+        <p class="detail">
+            Registering for Leading Wealth account gives you limitless earning potential. The moment you follow the procedure and refer users who in turn refer others, you all have the potential to earn. All you need do is to pay your invoices and persuade others to pay the one you issue them.<br>
+            With all said in mind, below are your invoices.
+        </p>
+        <p class="note"><b>Note: </b>Click on each invoice to get complete detail of the invoice, how to pay the invoice, or know if the invoice you issued has been paid, and a whole lot other stuffs.</p>
+    </div>
+    </div>
+    <div class="row info">
+    <div class="col-xs-12 invoice">
+        <div class="row info">
+        {% for invoice in invoices %}
+        <div class="col-sm-6">
+        <a href="{% url 'coin:invoice-detail' invoice.id %}" title="Invoice Detail">
+        <p class="title">Invoice Details</p>
+        <div class="table-responsive">
+        {% include 'coin/_partial/invoice.html' with invoice_detail=invoice %}
+        </div>
+        </a>
+        </div>
+        {% empty %}
+        <div class="info"><p class="title">No Invoices attached to your account.</p></div>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">Further Help</p>
+        <p class="detail">
+            If you need further help with Invoices, please consult the help page or talk to a customer service representative.
+        </p>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}

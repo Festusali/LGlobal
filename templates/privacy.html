@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block page_title %}Privacy Policy{% endblock page_title %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="privacy" class="info privacy">
+<div id="pricacy-container" class="container">
+
+    <div class="row info">
+    <div class="col-xs-12">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Leading Wealth || Privacy Policy!{% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div  class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title privacy">Privacy Policy!</p>
+        <p class="detail">
+            <p>
+                At Leading Wealth, when Updating an existing or Creating New Account, you may be required to provide certain personal information, which may include among others your Name (and or Username), Pictures, Birth Date, E-mail Address, Gender, Marital Status, and, in some cases, Payment Information like Bitcoin Wallet Address or any other Cryptocurrency Address. In addition, yet rarely, Leading Wealth may, and you hereby explicitly consent and permit Leading Wealth to, obtain such personal information, and certain additional personal information from your social networking service account, including among others your friends and contacts lists. Leading Wealth, in addition, may collect information regarding your use of the Leading Wealth Networking website, or any other platform either existing or that may be put in place in the future, and may keep such information regarding your communications with Leading Wealth. You agree that any information which you provide pursuant to this EULA will be accurate and complete, and that you will update that information promptly following any changes.
+            </p>
+
+            <p>
+                In addition, Leading Wealth, may use/publish publically, certain personal information made available by you, without such publication directly and explicitly disclosing your identity (among other things Leading Wealth may use information, including without limitation development/communication related information, for recording/publishing statistics). You are aware and agree that in some cases it may be possible to analyse such information and trace your identity, and Leading Wealth shall not be held responsible in such event. Specifically, you hereby grant Leading Wealth permission to display your name and/or picture within the Leading Wealth Website or rarely by third parties.
+            </p>
+
+            <p>
+                The information collected by Leading Wealth will be held and used in accordance with the Privacy Policy. Leading Wealth will not sell, lease, rent or otherwise disclose such information other than as stated in the Privacy Policy, provided that Leading Wealth and its affiliates may use such information, among other things for identification purposes, for the purpose of providing you information, alerts and reports, for improving the Website, products and services provided by Leading Wealth, for conducting the services and for other communications with you. You acknowledge and agree that Leading Wealth may use the services of third parties for the above mentioned purposes and therefore share your information with such third parties. You are aware that Leading Wealth may be required, pursuant to applicable laws, rules and regulation, to disclose certain of your information, and you hereby irrevocably and unconditionally agree to any such disclosure.
+            </p>
+        </p>
+    </div>
+    </div>
+
+    <div id="cookie" class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title cookie">Cookie Policy!</p>
+        <p class="detail">
+            <p>
+                Like many other websites, we use “cookies” (a small file sent to your computer by a website to allow the website to store information which uniquely identifies you) or other similar software to collect data in order to assist our users and provide them with a more personal experience visits in our Website. You can always disable cookies at your browser, but please note that if you do so, some (or all) of the features and functionality of our website/Service may not be available to you.
+            </p>
+
+            <p>
+                We may occasionally inform you of new features, functionality, services and products, and other promotions from Leading Wealth as well as send you periodic updates, tips and newsletters. You may opt-out of receiving these correspondences from us by following the unsubscribe instructions included in each Newsletter. Note that regardless of your election, we may continue sending you notices to update you on revisions made to this Privacy Policy or to our Terms of Service.
+            </p>
+        </p>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>
+
+{% endblock content %}

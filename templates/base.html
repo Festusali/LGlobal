@@ -1,0 +1,148 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en_us">
+<head>
+    {% block metatags %} <!-- Required meta tags --> 
+    {% block charset %} <meta charset="utf-8"> {% endblock charset %}
+    {% block httpequiv %} <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% endblock httpequiv %}
+    {% block viewport %} <meta name="viewport" content="width=device-width,  initial-scale=1"> {% endblock viewport %}
+    {% endblock metatags %}
+
+    <!--Including Bootstrap Essentials -->
+    {% comment "Uncomment in production environment" %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    {% endcomment %}
+
+    <!-- This bootstrap links should only be used in development environment -->
+    {% block boot_css %} <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"> {% endblock boot_css %}
+
+    {% block fonts %}
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    {% endblock fonts %}
+
+    <!-- Main custom css -->
+    {% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    {% endblock stylesheet %}
+    
+    {% block favicon %} <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"> {% endblock favicon %}
+
+  <title>{% block page_title %}Leading Wealth{% endblock page_title %}</title> 
+</head>
+<body>
+{% block nav_bar %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      {% block nav_text %}<a class="navbar-brand brand-text" href="{% url 'coin:index' %}"> <img class="site-logo" src="{% static 'LW-Logo.png' %}">Leading Wealth</a>{% endblock nav_text %}
+    </div>
+    <div class="collapse navbar-collapse" id="mainNavBar">
+      {% block nav_links %}
+      <ul class="nav navbar-nav">
+        {% block nav_dashboard %}<li class="dashboard"><a href="{% url 'coin:dashboard' %}">Dashboard</a></li>{% endblock nav_dashboard %}
+        {% if request.user.is_authenticated %}
+        {% block nav_level %}<li class="level"><a href="{% url 'coin:level' request.user.id %}">Level</a></li>{% endblock nav_level %}
+        {% endif %}
+        {% block nav_referrals %}<li class="Referral"><a href="{% url 'coin:referrals' %}">Referrals</a></li>{% endblock nav_referrals %}
+        {% block nav_invoices %}<li class="dropdown Invoice">
+          <a class="dropdown-toggle" data-toggle="dropdown">Invoices
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="Invoices"><a href="{% url 'coin:invoices' %}">All Invoices</a></li>
+            <li class="Invoices"><a href="{% url 'coin:issued' %}">Issued Out</a></li>
+            <li class="Invoices"><a href="{% url 'coin:invoiced' %}">Received Invoices</a></li> 
+          </ul>
+        </li>{% endblock nav_invoices %}
+        {% block nav_receipts %}<li class="receipt"><a href="{% url 'coin:receipts' %}">Receipts</a></li>{% endblock nav_receipts %}
+      </ul>
+      {% endblock nav_links %}
+      {% block nav_auth_links %}
+      {% if user.is_authenticated %}
+      <ul class="nav navbar-nav navbar-right">
+        {% block nav_user %}<li><a href="{% url 'user:profile' request.user.id %}"><b><span class="glyphicon glyphicon-user"></span> {{ request.user }}</b></a></li>{% endblock nav_user %}
+        {% block nav_logout %}<li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>{% endblock nav_logout %}
+      </ul>
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'user:register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      {% endif %}
+      {% endblock nav_auth_links %}
+    </div>
+  </div>
+</nav>
+{% endblock nav_bar %}
+
+<header>
+{% block headers %}
+{% endblock headers %}
+</header>
+
+<main>
+    {% block messages %}
+    {% if messages %}
+    <div class="row info">
+        <div class="col-xs-12">
+            {% include '_partial/messages.html' with messages=messages %}
+        </div>
+    </div>
+    {% endif %}
+    {% endblock messages %}
+    
+    {% block content %}
+    Welcome to Leading Wealth
+    {% endblock content %}
+</main>
+
+<footer>
+    {% block footer %}
+    <div id="footer" class="footer">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="title center-text">About Leading Wealth</div>
+          <div class="detail">Leading Wealth is a financial empowerment organization based on Multi Level Marketing strategies.<br>
+          <b>Our Mission: </b> To lift thousands of people out of poverty within one month of launch.<br>
+          <b>Our Vision: </b> To be the leading Multi Level Marketing platform whose positive impact on the members will be a testimony to non-memebers. <br>To be the yardstick for measuring transparency in Online Multi Level Marketing.
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="title center-text">Help and Legal Considerations</div>
+          <div class="detail">
+          <b>Help and Contact: </b>For help and enquiries, see the <a href="{% url 'coin:faq' %}" title="Frequently Asked Questions">Help Page</a>. Or send us a message on <a href="https://chat.whatsapp.com/DC24FJ3UvsWHyC1JJT1ejB" title="Contact Us Via WhatsApp" target="blank">WhatsApp</a>.<br>
+          <b>Legal Considerations: </b><a href="{% url 'coin:tos' %}" title="Terms and Conditions">Terms of Service</a> ||| <a href="{% url 'coin:tos' %}#disclaimer" title="Disclaimer">Disclaimer</a> ||| <a href="{% url 'coin:privacy' %}#privacy" title="Privacy Policy">Privacy Policy</a> ||| <a href="{% url 'coin:privacy' %}#cookie" title="Cookie Policy">Cookie Policy</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="title center-text">About Developer</div>
+            <div class="detail">Delivering secure, easy to use, scallable and intuitively designed websites is my utmost priority. I believe in the philosophy of usability and security both combined and that is what drives my development habbit while ensuring that every bit of the client's requirements are perfectly implemented. Afforadability is assured while not compromising on quality. <br>Get in touch on <a href="https://wa.me/2348100383180/" title="Contact Me Via WhatsApp" target="blank">WhatsApp</a> and I will transform your long age dream into reality. </div>
+        </div>
+      </div>
+    </div>
+    {% endblock footer %}
+</footer>
+{% block jquery_js %} <script src="{% static 'scripts/jquery.min.js' %}"></script> {% endblock jquery_js %}
+
+{% block boot_js %} <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script> {% endblock boot_js %}
+
+<!-- Main custom jquery/javascript -->
+{% block js %}
+<script src="{% static 'scripts/script.js' %}"></script>
+{% endblock js %}
+</body>
+</html>

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block page_title %}Terms of Service{% endblock page_title %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="tos" class="info tos">
+<div id="tos-container" class="container">
+
+    <div class="row info">
+    <div class="col-xs-12">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Leading Wealth || Terms of Service!{% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title tos">Terms of Services!</p>
+        <p id="tos-intro" class="detail">
+            <p><strong>Leading Wealth</strong> (also referred to herein as <strong>"Us"</strong> or <strong>"We"</strong>) is an <em>Online Multi-Level Marketing Platform</em> aimed at empowering people to financial freedom. <strong>Leading Wealth</strong> welcomes you to the community where you are giving the opportunity to participate in the marketing platform that enriches lives financially. Like all communities, we ask that you participate in a manner that respects your fellow community members and avoid scam/spam in all its forms/manners. To that end, we provide you with these <strong><em>Terms of Service</em></strong> to advise you of the legal obligations you assume when you engage with the <strong>Leading Wealth</strong> community or otherwise access or use the <strong>Leading Wealth</strong> website or any other services offered by <strong>Us</strong>.
+            Your (either as an individual or a representative of an organization or company) use or accessing of any of our services are governed by the below stated <strong>Terms and Conditions</strong>. Please read them carefully and ensure that you understand them properly before you continue using our services and or products.
+            </p>
+        </p>
+    </div>
+    </div>
+
+    <div id="leading-wealth-tos" class="intro">
+        <p class="title leading-wealth-tos">Leading Wealth Terms of Service</p>
+        <p class="detail">
+            <p>
+                Please read these <strong>Terms of Service</strong> (also known as <strong>Terms and Conditions</strong>) carefully before accessing or using the <strong>Leading Wealth</strong> website. These <em>Terms</em> constitute an agreement between <strong>Us (Leading Wealth)</strong> and <strong>You</strong> and governs your permitted use of the website, including any Services or Products that are part of the website or offered as an additional service. By accessing or using the website or any Services offered by Us in any manner, including without limitation by visiting or browsing the website or registering for an account on the Website, you affirm that you have read, understand, and agree to be bound by these Terms of Service, as well as the <strong>Privacy Policy</strong> and <strong>Cookie Policy</strong>. <strong>Leading Wealth</strong> reserves the right, at its discretion, to modify these <strong>Terms of Service</strong> at any time by providing notice via e-mail, where possible. You also agree to visit and review these terms often as there may be rare case where we may not be able to deliver the terms to your registered e-mail. In such cases, you are bound by such modifications and agree to never hold us accountable for your inability to receive such mail(s). You shall be responsible for reviewing and becoming familiar with any such modifications. Your access to or use of the website following such modification constitutes your acceptance of the terms and conditions of <strong>Leading Wealth</strong> as modified. To proper understanding and for clarity, these <strong>Leading Wealth Terms of Service</strong> apply to all who access or use the Website or its Services, including without limitation users who contribute content, information, and other materials or services, registered or otherwise.
+            </p>
+        </p>
+    </div>
+    
+    <div id="perm-age" class="intro">
+        <p class="title perm-age">Permissible Age</p>
+        <p class="detail">
+            <p>
+            You must be at least <strong>18 Years Old</strong> to access or use the website or any other services offered by Us, including without limitation account registration process on the <strong>Leading Wealth</strong> website. By accessing or using the website or any of Our services in any manner, you represent and warrant that you are at least 18 years of age. If you are below 18 years old, you may not, in any circumstances or for any reason, access or use the website or other services offered by Us in any manner, and may not provide any personal information to or on the website (including, for example, a name, address, telephone number or email address).
+            </p>
+        </p>
+    </div>
+    
+    <div id="access-to-website" class="intro">
+        <p class="title access-to-website">Access to the Website</p>
+        <p class="detail">
+            <p>
+            Any user of the website is welcomed to contribute or participate in the activities provided by <strong>Leading Wealth</strong>, provided that they comply with the obligations set forth in these <strong>Leading Wealth Terms of Service</strong>, and to the extent that use of the website or other services we offer, does not conflict with the applicable laws, rules and regulations of the user’s jurisdiction. <strong>Leading Wealth</strong> reserves every right to refuse, suspend or terminate your access to the website or other of our services if it determines, in its sole discretion, that you have in any way violated the <strong>Leading Wealth Terms of Service</strong> or are otherwise ineligible to access or use the website or other services offered by Us. You are solely responsible for ensuring that these <em>Terms and Conditions</em> are in compliance with all laws, rules and regulations applicable to you, and the right to access the website or any of our services is revoked where these <em>Terms of Service</em> or use of the website or any of our other services is prohibited or conflicts with any applicable law, rule or regulation.
+                
+            </p>
+        </p>
+    </div>
+    
+    <div id="obligations-of-user" class="intro">
+        <p class="title obligations-of-user">Obligations of User</p>
+        <p class="detail">
+            <p>
+            <ul>
+                <li>To access most of the website features, you will need to register for an account as an individual and consent to these <em>Terms of Service</em>. If you do not consent to these <strong>Leading Wealth Terms of Service</strong>, <strong>Leading Wealth</strong> reserves the right to refuse, suspend or terminate your access to the website or any of our services.</li>
+                <li>You are solely responsible for ensuring that your account registration is complete and remains up to date. You have the right to discontinue use of, or terminate, your account whenever you like. You should be aware and henceforth, consent that once you place content in the website, you willingly give up some rights and control over such content as is stated by our <a href="{% url 'coin:privacy' %}#privacy" title="Read The Privacy Policy">Privacy Policy</a>.</li>
+                <li><strong>Leading Wealth</strong> strongly encourages you to review our <a href="{% url 'coin:privacy' %}#privacy" title="Review The Privacy Policy">Privacy Policy</a>, which explains how we will handle, process, and use your personal data.</li>
+            </ul>
+            </p>
+        </p>
+    </div>
+    
+    <div id="permission-restriction-licensing" class="intro">
+        <p class="title permission-restriction-licensing">Content Permissions, Restrictions, and Licensing</p>
+        <p class="detail">
+            <p>
+            <ul>
+                <li><p class="title">Leading Wealth Content (Website Content)</p>
+                    All materials displayed or performed on the website, including but not limited to text, graphics, logos, tools, photographs, images, illustrations, audio and video, and animations (collectively known as <em>"Website Content"</em>) (other than Website Content posted by individuals – 'visitors and registered users alike') are the property of <strong>Leading Wealth</strong> and/or third parties and are protected by international copyright laws. All trademarks, service marks, and trade names are proprietary to <strong>Leading Wealth</strong> and/or third parties and use of the website means you agree to abide by all copyright notices, information, and restrictions contained in any Content accessed through the website or other services offered by Us.
+                </li>
+                <li><p class="title">Individual Content</p>
+                    You agree that any and all content, including without limitation any and all text, graphics, logos, tools, photographs, images, illustrations, animations, and product feedback that you provide to the website or any of our other services (collectively referred to as <em>"Individual Content"</em>), is perpetually and irrevocably licensed to <strong>Leading Wealth</strong>, and you grant <strong>Leading Wealth</strong> the perpetual and irrevocable right and license to access, use, process, copy, distribute, export, display and to commercially exploit such Individual Content, even if such Individual Content has been contributed and subsequently removed by you as reasonably necessary to, for example and in no limitation to; Provide, maintain, and update the Website, Process lawful requests from law enforcement agencies and government agencies, Aggregate data to provide product optimization.
+                </li>
+            </ul>
+            </p>
+        </p>
+    </div>
+    
+    <div id="disclaimer" class="intro">
+        <p class="title disclaimer">Disclaimer</p>
+        <p class="detail">
+            <strong>Leading Wealth</strong> affirms in clear terms that We do not in any way warrant or guarantee that you will make financial return(s) from visiting, registering, participating, or using our website or other services offered by Us. On this basis, you consent and irrevocably accept that you will never hold <strong>Leading Wealth</strong> responsible for not recording the desired financial income or any financial improvement to that effect. That you are solely responsible for participating in the <em>Marketing Plans</em> as outlined in the website and that the amount you make depends solely on how well and how much you participate in the abiding by outlined principles. 
+            To the extent permissible by law, <strong>Leading Wealth</strong> disclaims all warranties of any kind, including without limitation the implied warranties of <strong><em>Merchantability</em></strong>, <strong><em>Fitness for A Particular Purpose</em></strong>, and <strong><em>Non-Infringement</em></strong>, whether express, implied, or statutory. <strong>Leading Wealth</strong> provides no guarantees that the website or services will function without interruption or errors and provides the website, services, and any related content or products subject to these <strong>Leading Wealth Terms of Service</strong> on an <strong><em>"as is"</em></strong> basis.
+        </p>
+    </div>
+    
+    <div id="indemnification" class="intro">
+        <p class="title indemnification">Indemnification</p>
+        <p class="detail">
+            You will indemnify and hold <strong>Leading Wealth</strong>, its directors, officers, employees, agents, consultant, contractors, partners, vendors and service providers (including, without limitation, hosting and telecommunications providers) harmless, including costs and attorneys’ fees, from any claim or demand made by any third party due to or arising out of your access to the website and other services offered by Us, use of <strong>Leading Wealth</strong> website or services made available on the website, your violation of this Agreement, or your infringement or any third party using your account, of any intellectual property right.
+        </p>
+    </div>
+    
+    <div id="mandatory-arbitration" class="intro">
+        <p class="title mandatory-arbitration">Mandatory Arbitration</p>
+        <p class="detail">
+            You agree that with respect to all disputes between you and <strong>Leading Wealth</strong> or its affiliates or its officers, directors, or employees (whether or not such dispute involves a third party) with regard to your relationship with Us, including without limitation disputes relating to these <strong>Leading Wealth Terms of Service</strong>, your use of the website or services, and/or rights of privacy and/or publicity, you and <strong>Leading Wealth</strong> shall consult with each other to attempt to resolve such dispute in a manner satisfactory to both parties, and that resolution should be reached within ninety (90) days of registering such disputes.
+        </p>
+    </div>
+    
+    <div id="modifications" class="intro">
+        <p class="title modifications">Modifications</p>
+        <p class="detail">
+            <p>
+            <strong>Leading Wealth</strong> reserves the right, in its sole discretion, to modify or replace these <em>Terms of Service (Terms and Conditions)</em>, as our business evolves over time and to better provide Services and Products to the <strong>Leading Wealth Multi-Level Marketing</strong> community, or to change, suspend, or discontinue the Website and/or any Services or Products at any time by posting a notice via e-mail or by another appropriate means of electronic communication and that in a case where we are unable to deliver such e-mail(s), you will not hold us responsible for such actions (either by omission and/or commission).
+            </p>
+        </p>
+    </div>
+
+    </div>
+    </div>
+</div>
+</section>
+
+{% endblock content %}

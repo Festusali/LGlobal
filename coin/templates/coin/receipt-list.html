@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}List Of Receipts{% endblock %}
+{% block nav_receipts %}<li class="Receipt active"><a>Receipts</a></li>{% endblock nav_receipts %}
+
+{% block messages %}
+{% if messages %}
+<div class="row info">
+    <div class="col-xs-12">
+        {% include '_partial/messages.html' with messages=messages %}
+    </div>
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block content %}
+
+<section id="receipts" class="info">
+    <div class="row info">
+
+    <div class="col-xs-12">
+    <div id="receipts-container" class="container">
+    <div class="row page-header">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Receipts of Invoices Issued and Recieved by {{ request.user }} {% endblock title %}</h2>
+        </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 intro">
+        <p class="title">Receipts of Invoices Successfully Paid and Confirmed!</p>
+        <p class="detail">
+            Each Receipt contains the necessary details related to it and in such, enables you to view or cross check who paid for or who you paid the invoice to.
+        </p>
+        <p class="note"><b>Note: </b>Click on each receipt to see the complete detail. From there you can print the receipt for reference purposes.</p>
+    </div>
+    </div>
+    <div class="row info">
+    <div class="col-xs-12 receipt">
+        <div class="row info">
+        {% for receipt in receipts %}
+        <div class="col-sm-6">
+        <a href="{% url 'coin:receipt-detail' receipt.id %}" title="Receipt Detail">
+        <p class="title">Receipt Details</p>
+        <div class="table-responsive">
+        {% include 'coin/_partial/receipt.html' with receipt_detail=receipt %}
+        </div>
+        </a>
+        </div>
+        {% empty %}
+        <p class="title">No Receipt attached to your account yet.</p>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+
+    <div class="row info">
+    <div class="col-xs-12 help">
+        <p class="title">Further Help</p>
+        <p class="detail">
+            If you need further help with Receipts, please consult this help page or talk to a customer service representative.
+        </p>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+    </div>
+</section>
+
+{% endblock content %}

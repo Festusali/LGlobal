@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Edit Your Personal Information{% endblock page_title %}
+{% block nav_user %}<li class="active"><a href="{% url 'user:profile' request.user.id %}"><b><span class="glyphicon glyphicon-user"></span> {{ request.user }}</b></a></li>{% endblock nav_user %}
+
+{% block content %}
+
+<section id="edit-profile" class="info edit-profile">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>{% block title %}Edit Account Information!{% endblock title %}</h2>
+            {% block title_divider %}<hr class="star-primary">{% endblock title_divider %}
+        </div>
+    </div>
+
+    <div class="title">Provide Accurate Details Below</div>
+    <div class="details">
+        <span>Enter your details as required. All information you enter here are for your account maintenance/update purposes. If you don't want to continue with editing, you can </span><a href="{% url 'user:profile' user.id %}" title="View your profile">View your profile</a> or navigate to <a href="{% url 'coin:dashboard' %}" title="Go To Your Dashboard"> your dashboard</a>.
+    </div>
+    
+    <div class="row info">
+    <div class="col-xs-12">
+    
+    {% if form.is_multipart %}
+        <form enctype="multipart/form-data" method="POST" action="">
+    {% else %}
+        <form action="" method="POST">
+    {% endif %}
+    
+    {% csrf_token %}
+    
+    <div class="form-row">
+      <div class="form-group col-md-4 mb-0">
+        {{ form.phone|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.gender|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.status|as_crispy_field }}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-7 mb-0">
+        {{ form.wallet|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-5 mb-0">
+        {{ form.avatar|as_crispy_field }}
+      </div>
+    </div>
+    <div class="row ">
+        <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-primary btn-outline success">
+                <span class="glyphicon glyphicon-user"></span> Update Profile
+            </button>
+        </div>
+    </div>
+  </form>
+    
+    <div class="details">
+        Thank you for updating your personal information. You may chose to read <a href="{% url 'coin:privacy' %}#privacy" title="Privacy Policy">Privacy Policy</a> again to be updated on how we use personal data you provided.
+    </div>
+    
+    </div>
+    </div>
+    
+    </div>
+</section>
+
+{% endblock content %}
